@@ -1,0 +1,27 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.title-content {
+  text-align: left;
+  padding: 10px 0 20px 0;
+  @media ($breakpoint-medium)  {
+    padding-bottom: 30px;
+  }
+  &__main {
+    display: inline-block;
+    font-family: $font-family-primary;
+    font-size: $font-size-xxxl;
+    font-weight: $font-weight-xxl;
+    line-height: 1.08;
+    color: $gray-200;
+    padding: 10px 0;
+    margin: 0;
+  }
+  &__subtitle {
+    padding: 0;
+    margin: 0;
+    display: block;
+    color: $gray-200;
+    font-size: $font-size-s;
+  }
+}

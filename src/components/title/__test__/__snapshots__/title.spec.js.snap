@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title Component should render component 1`] = `
+<div
+  className="title-content"
+>
+  <h2
+    className="title-content__main"
+  >
+    title
+  </h2>
+  
+</div>
+`;
+
+exports[`Title Component should render component with subtitle 1`] = `
+<div
+  className="title-content"
+>
+  <h2
+    className="title-content__main"
+  >
+    title
+  </h2>
+  <span
+    className="title-content__subtitle"
+  >
+    subtitle
+  </span>
+</div>
+`;
