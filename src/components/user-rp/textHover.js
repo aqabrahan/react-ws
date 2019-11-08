@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
 
-class Hover extends Component {
-
+export default class TextHover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hovering: false,
-      river: 'asasas'
+      hovering: false
     }
     this.mouseOver = this.mouseOver.bind(this);
     this.mouseOut = this.mouseOut.bind(this);
@@ -18,14 +15,9 @@ class Hover extends Component {
 
   render() {
     return (
-      <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
-        {this.props.dibujar(this.state.hovering)}
+      <div className="padre" onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+        {this.props.render(this.state.hovering)}
       </div>
     )
   }
 }
-
-Hover.propTypes = {
-};
-
-export default Hover;

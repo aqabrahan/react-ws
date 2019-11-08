@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css';
-import Title from './components/title';
-import Profile from './components/profile';
-import RenderProps from './components/renderprops';
-import User from './components/user';
+import UserRP from './components/user-rp';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <User />
+        <UserRP />
       </header>
     </div>
   );
