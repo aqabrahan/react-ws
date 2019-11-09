@@ -1,16 +1,11 @@
 import React from 'react';
 import './App.css';
-import Title from './components/title';
-import Profile from './components/profile';
-import RenderProps from './components/renderprops';
-import User from './components/user';
+import Register from "./components/compound/Register";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <User />
-      </header>
+      <Register />
     </div>
   );
 }
