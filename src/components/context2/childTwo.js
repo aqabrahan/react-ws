@@ -10,10 +10,12 @@ export default class ChildTwo extends Component {
         {(context) => (
           <>
             <h4>Pan is from <span className="badge badge-danger">{context.nation}</span> and has a {hairColor} hair.</h4>
-            <button className="btn btn-primary" onClick={() => context.onChange(' -- -terricola')}>Change nationality</button>
+            <button className="btn btn-primary" onClick={() => context.onChange('Terricola')}>Change nationality</button>
             <UserProvider.Consumer>
-              {(ctx) => (
-                <div>Username : {ctx.name}</div>
+              {ctx => (
+                <>
+                  <h3>Name: {ctx.name}, from  {context.nation}</h3>
+                </>
               )}
             </UserProvider.Consumer>
           </>

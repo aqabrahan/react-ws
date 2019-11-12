@@ -14,6 +14,7 @@ export default class Index extends Component {
   render() {
     return (
       <AppContext.Provider value={this.state}>
+        <h1>Hi everyone, I'm from <span className="badge badge-success">{this.state.nation}</span> planet and my son</h1>
         {this.props.children}
       </AppContext.Provider>
     )
