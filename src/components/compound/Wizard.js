@@ -2,14 +2,16 @@
 import React, {Component} from 'react';
 
 class SimpleProcess extends Component {
+
   state = { activeIndex: 0 };
   changeIndex = (event, newIndex) => {
     event.preventDefault();
     this.setState({ activeIndex: newIndex });
   }
   isActive = (index) => {
-     return index === this.state.activeIndex;
+    return index === this.state.activeIndex;
   }
+
   render() {
     return (
       <div>
