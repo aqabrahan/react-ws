@@ -5,10 +5,12 @@ export default class Row extends Component {
     super(props);
     this.state = {
       name: 'Son',
-      lastname: 'Gohan'
+      lastname: 'Gohan',
+      width: window.innerWidth
     }
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeLastname = this.onChangeLastname.bind(this);
+    this.resizeWindow = this.resizeWindow.bind(this);
   }
 
   onChangeName(e) {
@@ -18,12 +20,33 @@ export default class Row extends Component {
     this.setState({lastname: e.target.value})
   }
 
+  componentDidMount() {
+    document.title = this.state.name + ' ' + this.state.lastname;
+    window.addEventListener('resize', this.resizeWindow);
+  }
+  componentDidUpdate() {
+    document.title = this.state.name + ' ' + this.state.lastname;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeWindow);
+  }
+
+  resizeWindow() {
+    this.setState({
+      width: window.innerWidth
+    });
+  }
+
   render() {
     return (
       <>
         <ThemeContext.Consumer>
           {(theme) =>
             <>
+              <div className="jumbotron">
+                  <h1 className="display-4">Hello, world! Class</h1>
+              </div>
               <div className={`alert alert-${theme}`}>
                 <input value={this.state.name} onChange={this.onChangeName} />
                 <p><strong>Name: </strong></p>
@@ -43,6 +66,10 @@ export default class Row extends Component {
                   </>
                 }
               </LangContext.Consumer>
+
+              <div className="jumbotron">
+                Window With: <strong>{this.state.width}</strong>
+              </div>
             </>
           }
         </ThemeContext.Consumer>

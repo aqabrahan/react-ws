@@ -1,9 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { ThemeContext, LangContext } from './context';
 
 export default function Row(props) {
   const [name, setName] = useState('Son')
   const [lastname, setLastname] = useState('Gohan')
+  const [width, setWidth] = useState(window.innerWidth);
+
   const theme = useContext(ThemeContext);
   const lang = useContext(LangContext);
 
@@ -13,8 +15,26 @@ export default function Row(props) {
   const onChangeLastname = (e) => {
     setLastname(e.target.value);
   }
+
+  useEffect(() => {
+    document.title = name + ' ' + lastname;
+  });
+
+  useEffect(() => {
+    const resizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', resizeWindow);
+    return () => {
+      window.removeEventListener('resize', resizeWindow);
+    }
+  });
+
+
+
   return (
     <>
+      <div className="jumbotron">
+          <h1 className="display-4">Hello, world! <strong>HOOKS</strong></h1>
+      </div>
       <div className={`alert alert-${theme}`}>
         <p><strong>Name: </strong></p>
         <p>{name}</p>
@@ -27,6 +47,9 @@ export default function Row(props) {
       </div>
       <div className="jumbotron">
         you speak: <strong>{lang}</strong>
+      </div>
+      <div className="jumbotron">
+        Window With: <strong>{width}</strong>
       </div>
     </>
   )
