@@ -101,3 +101,10 @@
   margin: 0 auto;
   text-align: center;
 }
+
+
+
+.dark {
+  background: #333333;
+  color: #fff;
+}
