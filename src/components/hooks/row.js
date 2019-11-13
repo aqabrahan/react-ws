@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import { ThemeContext, LangContext } from './context';
 
 export default function Row(props) {
@@ -8,6 +8,8 @@ export default function Row(props) {
 
   const theme = useContext(ThemeContext);
   const lang = useContext(LangContext);
+
+  const inputElement = useRef(null);
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -28,7 +30,9 @@ export default function Row(props) {
     }
   });
 
-
+  const onFocus = () => {
+    inputElement.current.focus();
+  };
 
   return (
     <>
@@ -50,6 +54,11 @@ export default function Row(props) {
       </div>
       <div className="jumbotron">
         Window With: <strong>{width}</strong>
+      </div>
+      <div className="jumbotron">
+        Input useRef
+        <button className="btn btn-danger" onClick={onFocus}>onFocus</button>
+        <p><input type="text" ref={inputElement} /></p>
       </div>
     </>
   )

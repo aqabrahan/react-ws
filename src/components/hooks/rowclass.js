@@ -11,6 +11,9 @@ export default class Row extends Component {
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeLastname = this.onChangeLastname.bind(this);
     this.resizeWindow = this.resizeWindow.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+
+    this.inputElement = React.createRef();
   }
 
   onChangeName(e) {
@@ -36,6 +39,10 @@ export default class Row extends Component {
     this.setState({
       width: window.innerWidth
     });
+  }
+
+  onFocus() {
+    this.inputElement.current.focus();
   }
 
   render() {
@@ -69,6 +76,12 @@ export default class Row extends Component {
 
               <div className="jumbotron">
                 Window With: <strong>{this.state.width}</strong>
+              </div>
+
+              <div className="jumbotron">
+                Input ref class
+                <button className="btn btn-danger" onClick={this.onFocus}>onFocus</button>
+                <p><input type="text" ref={this.inputElement} /></p>
               </div>
             </>
           }
