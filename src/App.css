@@ -108,3 +108,8 @@
   background: #333333;
   color: #fff;
 }
+
+.done {
+  text-decoration: line-through;
+  color: #09d3ac;
+}
